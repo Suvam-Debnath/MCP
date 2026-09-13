@@ -1,0 +1,34 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: mcpclient
+
+  ai:
+    model:
+      chat: ollama
+
+    ollama:
+      chat:
+        model: qwen2.5:3b
+
+    mcp:
+      client:
+        #        stdio:
+        #          servers-configuration: classpath:servers.json
+
+        streamable-http:
+          connections:
+            suvam:
+              url: http://localhost:8090
+              endpoint: /mcp
+
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor: DEBUG
